@@ -1,0 +1,42 @@
+name: Static Build
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    if: github.repository == 'AlexAlgarate/wedding_web'
+    runs-on: ubuntu-latest
+    environment: production
+    permissions:
+      contents: write
+    env:
+      ACCOUNT_NUMBER: ${{ secrets.ACCOUNT_NUMBER }}
+      VICKY_PHONE: ${{ secrets.VICKY_PHONE }}
+      VICKY_EMAIL: ${{ secrets.VICKY_EMAIL }}
+      ALEX_PHONE: ${{ secrets.ALEX_PHONE }}
+      ALEX_EMAIL: ${{ secrets.ALEX_EMAIL }}
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run build script
+        run: |
+          chmod +x ./remote_build.sh
+          ./remote_build.sh
+
+      - name: Commit and Push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Update static build for Vercel
+          commit_user_name: Alex Algarate [GitHub Actions]
+          commit_user_email: alex.algarate@gmail.com
+          commit_author: AlexAlgarate <alex.algarate@gmail.com>
