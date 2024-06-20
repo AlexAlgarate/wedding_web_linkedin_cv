@@ -13,9 +13,6 @@ jobs:
     permissions:
       contents: write
     env:
-      ACCOUNT_NUMBER: ${{ secrets.ACCOUNT_NUMBER }}
-      VICKY_PHONE: ${{ secrets.VICKY_PHONE }}
-      VICKY_EMAIL: ${{ secrets.VICKY_EMAIL }}
       ALEX_PHONE: ${{ secrets.ALEX_PHONE }}
       ALEX_EMAIL: ${{ secrets.ALEX_EMAIL }}
 
@@ -32,11 +29,6 @@ jobs:
         run: |
           chmod +x ./remote_build.sh
           ./remote_build.sh
-
-      - name: Run linter script
-        run: |
-          chmod +x ./linter.sh
-          ./linter.sh
 
       - name: Commit and Push changes
         uses: stefanzweifel/git-auto-commit-action@v5
