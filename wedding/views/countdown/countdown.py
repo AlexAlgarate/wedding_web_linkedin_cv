@@ -24,7 +24,7 @@ def countdown() -> rx.Component:
     ]
     return rx.vstack(
         text_section(utils.countdown_text),
-        secondary_button(utils.countdown_button, url=url.CALENDAR_HTML),
+        secondary_button(utils.countdown_button, url=url.GITHUB_URL),
         rx.flex(
             *countdown_elements,
             rx.script(src=FileRoutes.JS_COUNTDOWN.value),

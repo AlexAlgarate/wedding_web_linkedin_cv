@@ -19,8 +19,8 @@ def contact() -> rx.Component:
         icon_section(icon=icon.ICON_PHONE.value, alt=utils.alt_icon_contact),
         title_section(title=utils.contact_title),
         text_section(utils.contact_text_whatsapp),
-        whatsapp_button(utils.contact_bride, utils.contact_groom),
+        whatsapp_button(utils.contact_groom),
         text_section(utils.contact_text_email),
-        emails_text_component(utils.contact_bride, utils.contact_groom),
+        emails_text_component(utils.contact_groom),
         id="contact_section",
     )

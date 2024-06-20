@@ -33,6 +33,11 @@ jobs:
           chmod +x ./remote_build.sh
           ./remote_build.sh
 
+      - name: Run linter script
+        run: |
+          chmod +x ./linter.sh
+          ./linter.sh
+
       - name: Commit and Push changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:

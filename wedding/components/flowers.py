@@ -13,6 +13,7 @@ def lavender_flowers(
     Create a mobile-only component displaying an image with optional margin adjustments.
 
     Parameters:
+    - alt (str): The description of the image
     - image (str): The path or URL of the image.
     - margin_type (bool): If True, applies a specific margin for the image.
 
