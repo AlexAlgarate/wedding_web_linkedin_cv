@@ -4,7 +4,7 @@ from wedding import utils
 from wedding.components import card, icon_section, text_section, title_section
 from wedding.routes import IconRoutes as icon
 
-from .components import emails_text_component, whatsapp_button
+from .components import create_single_email, whatsapp_button
 
 
 def contact() -> rx.Component:
@@ -21,6 +21,6 @@ def contact() -> rx.Component:
         text_section(utils.contact_text_whatsapp),
         whatsapp_button(utils.contact_groom),
         text_section(utils.contact_text_email),
-        emails_text_component(utils.contact_groom),
+        create_single_email(utils.contact_groom),
         id="contact_section",
     )

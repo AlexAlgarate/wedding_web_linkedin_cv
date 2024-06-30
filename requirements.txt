@@ -1,7 +1,6 @@
 black
 isort
 ruff
-flake8
 python-dotenv
-
-reflex==0.5.4
+reflex
+reflex==0.5.5

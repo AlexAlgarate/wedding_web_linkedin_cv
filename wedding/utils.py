@@ -50,7 +50,7 @@ alt_icon_camera = "Icono de una cámara de fotos morada"
 
 # SECTION TEXTS
 # Countdown texts
-countdown_title: str = "¡Cuenta atrás!"
+countdown_title = "¡Cuenta atrás!"
 countdown_text = "¡Ven a acompañarnos en el día más feliz de nuestras vidas!"
 countdown_button = "Guardar fecha"
 
@@ -79,13 +79,8 @@ bus_origin_title = "Ida a la ceremonia"
 bur_origin_address = "Av. Martín Alonso Pinzón, 34"
 hotel_name = "Senator Huelva Hotel"
 hotel_address = "C/ Pablo Rada"
-# origin_address = "El Punto, Av. Martín Alonso Pinzón, 34"  # Si sale de El Punto
 origin_bus_schedule = "pte hora"
-# origin_bus_schedule = "17:00"
-
 bus_destination_title = "Regreso a casa"
-# bus_destination_title = "Vuelta a descansar"
-
 destination_address = "Cjón. los Romanos, 1 (Punta Umbría, Huelva)"
 
 
