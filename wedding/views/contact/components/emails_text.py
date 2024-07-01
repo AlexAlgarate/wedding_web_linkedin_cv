@@ -2,31 +2,21 @@ from typing import Dict
 
 import reflex as rx
 
-from wedding.styles import Size
+from wedding.components import secondary_button
 
 
-def create_single_email(email: Dict[str, str]) -> rx.Component:
+def create_single_email(contact: Dict[str, str]) -> rx.Component:
     """
-    Creates a reflex component for a single email.
+    Creates a reflex component to display email button.
 
     Args:
-        email (Dict[str, str]): Dictionary containing email information.
+        contact (Dict[str, str]): Dictionary containing contact information.
 
     Returns:
-        rx.Component: Reflex component for a single email.
+        rx.Component: Reflex component displaying email button.
     """
-
-    return rx.link(
-        rx.text(
-            email["email"],
-            font_size=[
-                "1.2em",
-                "1.2em",
-                "1.2em",
-                "1.2em",
-                Size.LARGE.value,
-            ],
-            font_weight="600",
-        ),
-        href=f"mailto:{email['email']}",
+    return secondary_button(
+        button_name=contact["email"],
+        url=f"mailto:{contact['email']}",
+        icon="mail-open",
     )

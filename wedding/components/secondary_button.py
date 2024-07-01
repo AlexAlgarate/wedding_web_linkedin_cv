@@ -8,6 +8,7 @@ from wedding.styles import Color, Size
 def secondary_button(
     button_name: str,
     url: str,
+    icon_image: Optional[str] = None,
     icon: Optional[str] = None,
     alt: Optional[str] = None,
 ) -> rx.Component:
@@ -17,7 +18,7 @@ def secondary_button(
     Args:
         button_name (str): Name of the button.
         url (str): URL to link the button to.
-        icon (Optional[str]): Optional icon source.
+        icon_image (Optional[str]): Optional icon source.
         alt (Optional[str]): Optional description of the icon image.
 
     Returns:
@@ -28,43 +29,50 @@ def secondary_button(
 
     if icon:
         button_content.append(
+            rx.icon(
+                tag=icon,
+                color=Color.BUTTONS.value,
+                stroke_width=1.5,
+            )
+        )
+    if icon_image:
+        button_content.append(
             rx.image(
-                src=icon,
+                src=icon_image,
                 alt=alt,
             )
         )
 
     button_content.append(rx.text(button_name))
-
+    style_secondary_button = dict(
+        color=Color.TITLES.value,
+        text_align="center",
+        font_variant_numeric="lining-nums proportional-nums",
+        padding=[
+            "8px 24px",
+            "8px 24px",
+            "8px 24px",
+            "8px 24px",
+            "16px 24px",
+        ],
+        justify_content="center",
+        align_items="center",
+        gap="8px",
+        align_self="stretch",
+        border_radius="5px",
+        border="2px solid #4F1F7E",
+        background=Color.BACKGROUND.value,
+        font_size=[
+            Size.DEFAULT.value,
+            Size.DEFAULT.value,
+            Size.DEFAULT.value,
+            Size.DEFAULT.value,
+            Size.LARGE.value,
+        ],
+        _hover={"cursor": "pointer", "background": "#f4f2fa"},
+    )
     return rx.link(
-        rx.button(
-            *button_content,
-            color=Color.TITLES.value,
-            text_align="center",
-            font_variant_numeric="lining-nums proportional-nums",
-            padding=[
-                "8px 24px",
-                "8px 24px",
-                "8px 24px",
-                "8px 24px",
-                "16px 24px",
-            ],
-            justify_content="center",
-            align_items="center",
-            gap="8px",
-            align_self="stretch",
-            border_radius="5px",
-            border="2px solid #4F1F7E",
-            background=Color.BACKGROUND.value,
-            font_size=[
-                Size.DEFAULT.value,
-                Size.DEFAULT.value,
-                Size.DEFAULT.value,
-                Size.DEFAULT.value,
-                Size.LARGE.value,
-            ],
-            _hover={"cursor": "pointer", "background": "#f4f2fa"},
-        ),
+        rx.button(*button_content, style=style_secondary_button),
         href=url,
         is_external=True,
     )

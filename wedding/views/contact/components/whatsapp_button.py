@@ -20,10 +20,10 @@ def whatsapp_button(*contacts: Dict[str, str]) -> rx.Component:
 
     whatsapp_buttons = [
         secondary_button(
-            f"Abrir Whatsapp con {contact.get('name')}",
-            f"https://wa.me/34{contact.get('phone_number').replace(' ', '')}",
-            icon.ICON_WHATSAPP.value,
-            utils.alt_icon_whatsapp,
+            button_name=f"Abrir Whatsapp con {contact.get('name')}",
+            url=f"https://wa.me/34{contact.get('phone_number').replace(' ', '')}",
+            icon_image=icon.ICON_WHATSAPP.value,
+            alt=utils.alt_icon_whatsapp,
         )
         for contact in contacts
     ]
